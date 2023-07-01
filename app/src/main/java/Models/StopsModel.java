@@ -15,5 +15,25 @@ public class StopsModel {
         this.ScheduledTime = scheduledTime;
     }
 
+    public String getStopId() {
+        return StopId;
+    }
 
+    public String getName() {
+        return Name;
+    }
+
+    public String getLatitude() {
+        return Latitude;
+    }
+
+    public String getLongitude() {
+        return Longitude;
+    }
+
+    public String getScheduledTime() {
+        return ScheduledTime;
+    }
+
+    // models 7:23
 }
