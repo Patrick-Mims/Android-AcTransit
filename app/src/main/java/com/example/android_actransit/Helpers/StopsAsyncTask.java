@@ -3,12 +3,7 @@ package com.example.android_actransit.Helpers;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.util.Log;
-import android.widget.Button;
-import android.widget.TextView;
-
 import com.example.android_actransit.Models.StopsModel;
-import com.example.android_actransit.R;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -22,12 +17,16 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 public class StopsAsyncTask extends AsyncTask<String, Void, String> {
-    Context context;
-    public ArrayList<StopsModel> stopsModel;
+    public Context context;
+    public ArrayList<StopsModel> model;
+    // public ArrayList<String> model;
+    // public ArrayList<StopsModel> stopsModel;
 
-    public StopsAsyncTask(Context context, ArrayList<StopsModel> stopsModel) {
+    // public StopsAsyncTask(Context context, ArrayList<StopsModel> stopsModel) {
+    // public StopsAsyncTask(Context context, ArrayList<String> model) {
+    public StopsAsyncTask(Context context, ArrayList<StopsModel> model) {
         this.context = context;
-        this.stopsModel = stopsModel;
+        this.model = model;
     }
 
     //@Override
@@ -80,22 +79,13 @@ public class StopsAsyncTask extends AsyncTask<String, Void, String> {
         super.onPostExecute(result);
 
         try {
-            stopsModel = new ArrayList<>();
+            model = new ArrayList<>();
 
             JSONArray list = new JSONArray(result);
             JSONObject jsonObject;
 
             for(int i = 0; i < list.length(); i++) {
                 jsonObject = list.getJSONObject(i);
-                //resultsTe.append(jsonObject.getInt("StopId"));
-
-                stopsModel.add(new StopsModel(
-                        jsonObject.getInt("StopId"),
-                        jsonObject.getString("Name"),
-                        jsonObject.getDouble("Latitude"),
-                        jsonObject.getDouble("Longitude"),
-                        jsonObject.getString("ScheduledTime")));
-
                 Log.i("RESULT", jsonObject.getInt("StopId") + " | " + jsonObject.getString("Name") + " | " + jsonObject.getString("Latitude") + " | " +
                         jsonObject.getString("Longitude") + " | " + jsonObject.getString("ScheduledTime"));
             }
