@@ -9,19 +9,18 @@ import com.example.android_actransit.Helpers.StopsAsyncTask;
 import com.example.android_actransit.Models.StopsModel;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 public class MainActivity extends AppCompatActivity {
     LinearLayoutManager layoutManager;
     RecyclerView recyclerView;
     StopsAdapter adapter;
-    ArrayList items = new ArrayList<>(Arrays.asList("Patrick", "Anabelle", "Sarah", "Michael", "Philip", "Jessie", "Frank", "Jason", "Danial", "Paul", "Kim", "Janet", "Bryan", "Jessica", "Ana"));
+    ArrayList<StopsModel> items = new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_main);
 
-//        items.add(new StopsModel(40001, "Lake Shore", 12.0, 32.0, "now"));
+        items.add(new StopsModel(40001, "Lake Shore", 12.0, 32.0, "now"));
 
         getStops();
 
@@ -31,7 +30,6 @@ public class MainActivity extends AppCompatActivity {
 
         recyclerView.setLayoutManager(layoutManager);
 
-        // adapter = new StopsAdapter(MainActivity.this, items);
         adapter = new StopsAdapter(MainActivity.this, items);
 
         recyclerView.setAdapter(adapter);
