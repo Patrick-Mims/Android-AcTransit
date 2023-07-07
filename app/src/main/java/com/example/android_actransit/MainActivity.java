@@ -21,6 +21,37 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         items.add(new StopsModel(40001, "Lake Shore", 12.0, 32.0, "now"));
+        items.add(new StopsModel(53001, "Grand Ave", 72.0, 22.0, "Later"));
+        items.add(new StopsModel(40001, "Lake Shore", 12.0, 32.0, "now"));
+        items.add(new StopsModel(53001, "Grand Ave", 72.0, 22.0, "Later"));
+        items.add(new StopsModel(40001, "Lake Shore", 12.0, 32.0, "now"));
+        items.add(new StopsModel(53001, "Grand Ave", 72.0, 22.0, "Later"));
+        items.add(new StopsModel(40001, "Lake Shore", 12.0, 32.0, "now"));
+        items.add(new StopsModel(53001, "Grand Ave", 72.0, 22.0, "Later"));
+        items.add(new StopsModel(40001, "Lake Shore", 12.0, 32.0, "now"));
+        items.add(new StopsModel(53001, "Grand Ave", 72.0, 22.0, "Later"));
+        items.add(new StopsModel(40001, "Lake Shore", 12.0, 32.0, "now"));
+        items.add(new StopsModel(53001, "Grand Ave", 72.0, 22.0, "Later"));
+        items.add(new StopsModel(40001, "Lake Shore", 12.0, 32.0, "now"));
+        items.add(new StopsModel(53001, "Grand Ave", 72.0, 22.0, "Later"));
+        items.add(new StopsModel(40001, "Lake Shore", 12.0, 32.0, "now"));
+        items.add(new StopsModel(53001, "Grand Ave", 72.0, 22.0, "Later"));
+        items.add(new StopsModel(40001, "Lake Shore", 12.0, 32.0, "now"));
+        items.add(new StopsModel(53001, "Grand Ave", 72.0, 22.0, "Later"));
+        items.add(new StopsModel(40001, "Lake Shore", 12.0, 32.0, "now"));
+        items.add(new StopsModel(53001, "Grand Ave", 72.0, 22.0, "Later"));
+        items.add(new StopsModel(40001, "Lake Shore", 12.0, 32.0, "now"));
+        items.add(new StopsModel(53001, "Grand Ave", 72.0, 22.0, "Later"));
+        items.add(new StopsModel(40001, "Lake Shore", 12.0, 32.0, "now"));
+        items.add(new StopsModel(53001, "Grand Ave", 72.0, 22.0, "Later"));
+        items.add(new StopsModel(40001, "Lake Shore", 12.0, 32.0, "now"));
+        items.add(new StopsModel(53001, "Grand Ave", 72.0, 22.0, "Later"));
+        items.add(new StopsModel(40001, "Lake Shore", 12.0, 32.0, "now"));
+        items.add(new StopsModel(53001, "Grand Ave", 72.0, 22.0, "Later"));
+        items.add(new StopsModel(40001, "Lake Shore", 12.0, 32.0, "now"));
+        items.add(new StopsModel(53001, "Grand Ave", 72.0, 22.0, "Later"));
+        items.add(new StopsModel(40001, "Lake Shore", 12.0, 32.0, "now"));
+        items.add(new StopsModel(53001, "Grand Ave", 72.0, 22.0, "Later"));
 
         getStops();
 
