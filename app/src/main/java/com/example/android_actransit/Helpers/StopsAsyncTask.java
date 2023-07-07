@@ -19,17 +19,11 @@ import org.json.JSONObject;
 public class StopsAsyncTask extends AsyncTask<String, Void, String> {
     public Context context;
     public ArrayList<StopsModel> model;
-    // public ArrayList<String> model;
-    // public ArrayList<StopsModel> stopsModel;
-
-    // public StopsAsyncTask(Context context, ArrayList<StopsModel> stopsModel) {
-    // public StopsAsyncTask(Context context, ArrayList<String> model) {
     public StopsAsyncTask(Context context, ArrayList<StopsModel> model) {
         this.context = context;
         this.model = model;
     }
 
-    //@Override
     protected String doInBackground(String... params) {
         BufferedReader bufferedReader;
         HttpURLConnection urlConnection = null;
