@@ -3,17 +3,23 @@ package com.example.android_actransit.Helpers;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.util.Log;
-import com.example.android_actransit.Models.StopsModel;
+import android.widget.Button;
+import android.widget.TextView;
 
-import org.json.JSONArray;
-import org.json.JSONObject;
+import com.example.android_actransit.Models.StopsModel;
+import com.example.android_actransit.R;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+
 import java.net.HttpURLConnection;
 import java.net.URL;
+
 import java.util.ArrayList;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 public class StopsAsyncTask extends AsyncTask<String, Void, String> {
     Context context;
@@ -33,7 +39,7 @@ public class StopsAsyncTask extends AsyncTask<String, Void, String> {
         StringBuilder builder;
         URL url;
 
-        Log.i("JSON", params[0]);
+        Log.i("PARAM", params[0]);
 
         try {
             url = new URL(params[0]);
@@ -49,7 +55,6 @@ public class StopsAsyncTask extends AsyncTask<String, Void, String> {
             builder = new StringBuilder();
 
             while((line = bufferedReader.readLine()) != null) {
-                Log.i("LINE", line);
                 builder.append(line).append("\n");
             }
 
@@ -75,12 +80,24 @@ public class StopsAsyncTask extends AsyncTask<String, Void, String> {
         super.onPostExecute(result);
 
         try {
+            stopsModel = new ArrayList<>();
+
             JSONArray list = new JSONArray(result);
             JSONObject jsonObject;
 
             for(int i = 0; i < list.length(); i++) {
                 jsonObject = list.getJSONObject(i);
-                Log.i("DATA", jsonObject.getString("Name") + " | " +  jsonObject.getString("StopId") + " | " + jsonObject.getString("Latitude") );
+                //resultsTe.append(jsonObject.getInt("StopId"));
+
+                stopsModel.add(new StopsModel(
+                        jsonObject.getInt("StopId"),
+                        jsonObject.getString("Name"),
+                        jsonObject.getDouble("Latitude"),
+                        jsonObject.getDouble("Longitude"),
+                        jsonObject.getString("ScheduledTime")));
+
+                Log.i("RESULT", jsonObject.getInt("StopId") + " | " + jsonObject.getString("Name") + " | " + jsonObject.getString("Latitude") + " | " +
+                        jsonObject.getString("Longitude") + " | " + jsonObject.getString("ScheduledTime"));
             }
         } catch (Exception e) {
             e.printStackTrace();
