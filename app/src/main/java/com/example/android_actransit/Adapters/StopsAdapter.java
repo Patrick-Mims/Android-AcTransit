@@ -8,15 +8,14 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.android_actransit.Helpers.StopsAsyncTask;
 import com.example.android_actransit.Models.StopsModel;
 import com.example.android_actransit.R;
 import java.util.ArrayList;
 
 public class StopsAdapter extends RecyclerView.Adapter<StopsAdapter.ViewHolder> {
     Context context;
-    // ArrayList model;
     ArrayList<StopsModel> model;
-    // public StopsAdapter(Context context, ArrayList model) {
     public StopsAdapter(Context context, ArrayList<StopsModel> model) {
         this.context = context;
         this.model = model;
@@ -29,12 +28,17 @@ public class StopsAdapter extends RecyclerView.Adapter<StopsAdapter.ViewHolder> 
     }
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        StopsModel data = model.get(position);
-        holder.stopId.setText(String.format("%s", data.getStopId()));
-        holder.name.setText(String.format("%s", data.getName()));
-        holder.latitude.setText(String.format("%s", data.getLatitude()));
-        holder.longitude.setText(String.format("%s", data.getLatitude()));
-        holder.scheduledTime.setText(String.format("%s", data.getScheduledTime()));
+        StopsModel mod = model.get(position);
+
+        StopsAsyncTask stopsAsyncTask = new StopsAsyncTask(context, model);
+        stopsAsyncTask.execute("https://api.actransit.org/transit/stops/?token=010910F3B6021AE11917D7EFDC2F26CD");
+
+        holder.stopId.setText(String.format("%s", mod.getStopId()));
+        holder.stopId.setText(String.format("%s", mod.getStopId()));
+        holder.name.setText(String.format("%s", mod.getName()));
+        holder.latitude.setText(String.format("%s", mod.getLatitude()));
+        holder.longitude.setText(String.format("%s", mod.getLatitude()));
+        holder.scheduledTime.setText(String.format("%s", mod.getScheduledTime()));
     }
     @Override
     public int getItemCount() {

@@ -14,45 +14,52 @@ public class MainActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     StopsAdapter adapter;
     ArrayList<StopsModel> items = new ArrayList<>();
+
+    private ArrayList<StopsModel> initData() {
+        ArrayList<StopsModel> items = new ArrayList<>();
+
+        items.add(new StopsModel(40001, "Lake Shore", 12.0, 32.0, "now"));
+        items.add(new StopsModel(53001, "Grand Ave", 72.0, 22.0, "Later"));
+        items.add(new StopsModel(40001, "Lake Shore", 12.0, 32.0, "now"));
+        items.add(new StopsModel(53001, "Grand Ave", 72.0, 22.0, "Later"));
+        items.add(new StopsModel(40001, "Lake Shore", 12.0, 32.0, "now"));
+        items.add(new StopsModel(53001, "Grand Ave", 72.0, 22.0, "Later"));
+        items.add(new StopsModel(40001, "Lake Shore", 12.0, 32.0, "now"));
+        items.add(new StopsModel(53001, "Grand Ave", 72.0, 22.0, "Later"));
+        items.add(new StopsModel(40001, "Lake Shore", 12.0, 32.0, "now"));
+        items.add(new StopsModel(53001, "Grand Ave", 72.0, 22.0, "Later"));
+        items.add(new StopsModel(40001, "Lake Shore", 12.0, 32.0, "now"));
+        items.add(new StopsModel(53001, "Grand Ave", 72.0, 22.0, "Later"));
+        items.add(new StopsModel(40001, "Lake Shore", 12.0, 32.0, "now"));
+        items.add(new StopsModel(53001, "Grand Ave", 72.0, 22.0, "Later"));
+        items.add(new StopsModel(40001, "Lake Shore", 12.0, 32.0, "now"));
+        items.add(new StopsModel(53001, "Grand Ave", 72.0, 22.0, "Later"));
+        items.add(new StopsModel(40001, "Lake Shore", 12.0, 32.0, "now"));
+        items.add(new StopsModel(53001, "Grand Ave", 72.0, 22.0, "Later"));
+        items.add(new StopsModel(40001, "Lake Shore", 12.0, 32.0, "now"));
+        items.add(new StopsModel(53001, "Grand Ave", 72.0, 22.0, "Later"));
+        items.add(new StopsModel(40001, "Lake Shore", 12.0, 32.0, "now"));
+        items.add(new StopsModel(53001, "Grand Ave", 72.0, 22.0, "Later"));
+        items.add(new StopsModel(40001, "Lake Shore", 12.0, 32.0, "now"));
+        items.add(new StopsModel(53001, "Grand Ave", 72.0, 22.0, "Later"));
+        items.add(new StopsModel(40001, "Lake Shore", 12.0, 32.0, "now"));
+        items.add(new StopsModel(53001, "Grand Ave", 72.0, 22.0, "Later"));
+        items.add(new StopsModel(40001, "Lake Shore", 12.0, 32.0, "now"));
+        items.add(new StopsModel(53001, "Grand Ave", 72.0, 22.0, "Later"));
+        items.add(new StopsModel(40001, "Lake Shore", 12.0, 32.0, "now"));
+        items.add(new StopsModel(53001, "Grand Ave", 72.0, 22.0, "Later"));
+        items.add(new StopsModel(40001, "Lake Shore", 12.0, 32.0, "now"));
+        items.add(new StopsModel(53001, "Grand Ave", 72.0, 22.0, "Later"));
+
+        return items;
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_main);
 
-        items.add(new StopsModel(40001, "Lake Shore", 12.0, 32.0, "now"));
-        items.add(new StopsModel(53001, "Grand Ave", 72.0, 22.0, "Later"));
-        items.add(new StopsModel(40001, "Lake Shore", 12.0, 32.0, "now"));
-        items.add(new StopsModel(53001, "Grand Ave", 72.0, 22.0, "Later"));
-        items.add(new StopsModel(40001, "Lake Shore", 12.0, 32.0, "now"));
-        items.add(new StopsModel(53001, "Grand Ave", 72.0, 22.0, "Later"));
-        items.add(new StopsModel(40001, "Lake Shore", 12.0, 32.0, "now"));
-        items.add(new StopsModel(53001, "Grand Ave", 72.0, 22.0, "Later"));
-        items.add(new StopsModel(40001, "Lake Shore", 12.0, 32.0, "now"));
-        items.add(new StopsModel(53001, "Grand Ave", 72.0, 22.0, "Later"));
-        items.add(new StopsModel(40001, "Lake Shore", 12.0, 32.0, "now"));
-        items.add(new StopsModel(53001, "Grand Ave", 72.0, 22.0, "Later"));
-        items.add(new StopsModel(40001, "Lake Shore", 12.0, 32.0, "now"));
-        items.add(new StopsModel(53001, "Grand Ave", 72.0, 22.0, "Later"));
-        items.add(new StopsModel(40001, "Lake Shore", 12.0, 32.0, "now"));
-        items.add(new StopsModel(53001, "Grand Ave", 72.0, 22.0, "Later"));
-        items.add(new StopsModel(40001, "Lake Shore", 12.0, 32.0, "now"));
-        items.add(new StopsModel(53001, "Grand Ave", 72.0, 22.0, "Later"));
-        items.add(new StopsModel(40001, "Lake Shore", 12.0, 32.0, "now"));
-        items.add(new StopsModel(53001, "Grand Ave", 72.0, 22.0, "Later"));
-        items.add(new StopsModel(40001, "Lake Shore", 12.0, 32.0, "now"));
-        items.add(new StopsModel(53001, "Grand Ave", 72.0, 22.0, "Later"));
-        items.add(new StopsModel(40001, "Lake Shore", 12.0, 32.0, "now"));
-        items.add(new StopsModel(53001, "Grand Ave", 72.0, 22.0, "Later"));
-        items.add(new StopsModel(40001, "Lake Shore", 12.0, 32.0, "now"));
-        items.add(new StopsModel(53001, "Grand Ave", 72.0, 22.0, "Later"));
-        items.add(new StopsModel(40001, "Lake Shore", 12.0, 32.0, "now"));
-        items.add(new StopsModel(53001, "Grand Ave", 72.0, 22.0, "Later"));
-        items.add(new StopsModel(40001, "Lake Shore", 12.0, 32.0, "now"));
-        items.add(new StopsModel(53001, "Grand Ave", 72.0, 22.0, "Later"));
-        items.add(new StopsModel(40001, "Lake Shore", 12.0, 32.0, "now"));
-        items.add(new StopsModel(53001, "Grand Ave", 72.0, 22.0, "Later"));
-
+        ArrayList<StopsModel> items = initData();
         getStops();
 
         recyclerView = findViewById(R.id.recyclerView);
