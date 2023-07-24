@@ -3,22 +3,18 @@ package com.example.android_actransit.Helpers;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.util.Log;
-import android.view.View;
 import android.widget.ProgressBar;
-import android.widget.TextView;
 
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.android_actransit.Adapters.StopsAdapter;
-import com.example.android_actransit.MainActivity;
 import com.example.android_actransit.Models.StopsModel;
-import com.example.android_actransit.R;
 
 import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
 
+import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
@@ -26,34 +22,40 @@ import java.util.ArrayList;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
-import org.w3c.dom.Text;
 
 public class StopsAsyncTask extends AsyncTask<String, Integer, String> {
-    public ProgressBar progressBar;
-    public Context context;
+    RecyclerView recyclerView;
+    ProgressBar progressBar;
+    Context context;
+    ArrayList<StopsModel> model;
 
-    RecyclerView rv;
-
-    public ArrayList<StopsModel> model;
-    public StopsAsyncTask(Context context, ArrayList<StopsModel> model) {
-        this.context = context;
+    //public StopsAsyncTask(ArrayList<StopsModel> model) {
+    private int PROGRESS_MAX;
+    public StopsAsyncTask(Context context, RecyclerView recyclerView, ProgressBar progressBar, ArrayList<StopsModel> model) {
         this.model = model;
+        this.context = context;
+        this.recyclerView = recyclerView;
+        this.progressBar = progressBar;
+        // this.PROGRESS_MAX = this.progressBar.getMax();
     }
 
     protected void onPreExecute() {
-       // progressBar.setVisibility(View.VISIBLE);
+       super.onPreExecute();
+       // this.progressBar.setVisibility(ProgressBar.VISIBLE);
+       //progressDialog = new ProgressDialog(context);
     }
 
     protected String doInBackground(String... params) {
-        int count = 100;
+
         BufferedReader bufferedReader;
         HttpURLConnection urlConnection = null;
         String line;
-        String results;
+        // ArrayList<StopsModel> results = null;
+        String results = null;
         StringBuilder builder;
         URL url;
 
-        Log.i("PARAM", params[0]);
+        Log.i("PARAMS", params[0]);
 
         try {
             url = new URL(params[0]);
@@ -79,11 +81,12 @@ public class StopsAsyncTask extends AsyncTask<String, Integer, String> {
             }
 
             results = builder.toString();
-
+/*
             for(int i = 0; i < count; i++) {
                publishProgress(i);
             }
 
+ */
             return results;
         } catch (Exception e) {
             e.printStackTrace();
@@ -104,11 +107,13 @@ public class StopsAsyncTask extends AsyncTask<String, Integer, String> {
     protected void onPostExecute(String result) {
         super.onPostExecute(result);
 
-        //rv = rv.findViewById(R.id.recyclerView);
+      //  progressDialog.dismiss();
+
+//        this.model.add(new StopsModel(10000, "Templeton Ave #5", 33.99, 11.77, "Patrick"));
+
+        //StopsAdapter adapter = new StopsAdapter(context, result);
 
         try {
-            // model = new ArrayList<>();
-
             JSONArray list = new JSONArray(result);
             JSONObject jsonObject;
 
@@ -120,6 +125,15 @@ public class StopsAsyncTask extends AsyncTask<String, Integer, String> {
             }
         } catch (Exception e) {
             e.printStackTrace();
+        }
+
+        recyclerView.setLayoutManager(new LinearLayoutManager(context));
+
+        StopsAdapter adapter = new StopsAdapter(context, model);
+        this.recyclerView.setAdapter(adapter);
+
+        for(StopsModel sm: this.model){
+            Log.i("VIDEO-100->", sm.getName());
         }
     }
 }
