@@ -13,44 +13,36 @@ import com.example.android_actransit.Models.StopsModel;
 
 import java.io.BufferedReader;
 import java.io.IOException;
-
 import java.io.InputStreamReader;
+
 import java.net.HttpURLConnection;
 import java.net.URL;
 
 import java.util.ArrayList;
 
 import org.json.JSONArray;
-import org.json.JSONObject;
 
 public class StopsAsyncTask extends AsyncTask<String, Integer, String> {
-    RecyclerView recyclerView;
-    ProgressBar progressBar;
-    Context context;
+    private final Context context;
+    private final ProgressBar progressBar;
+    private final RecyclerView recyclerView;
     ArrayList<StopsModel> model;
 
-    //public StopsAsyncTask(ArrayList<StopsModel> model) {
-    private int PROGRESS_MAX;
     public StopsAsyncTask(Context context, RecyclerView recyclerView, ProgressBar progressBar, ArrayList<StopsModel> model) {
         this.model = model;
         this.context = context;
         this.recyclerView = recyclerView;
         this.progressBar = progressBar;
-        // this.PROGRESS_MAX = this.progressBar.getMax();
     }
 
     protected void onPreExecute() {
-       super.onPreExecute();
-       // this.progressBar.setVisibility(ProgressBar.VISIBLE);
-       //progressDialog = new ProgressDialog(context);
+        super.onPreExecute();
     }
 
     protected String doInBackground(String... params) {
-
         BufferedReader bufferedReader;
         HttpURLConnection urlConnection = null;
         String line;
-        // ArrayList<StopsModel> results = null;
         String results = null;
         StringBuilder builder;
         URL url;
@@ -81,12 +73,7 @@ public class StopsAsyncTask extends AsyncTask<String, Integer, String> {
             }
 
             results = builder.toString();
-/*
-            for(int i = 0; i < count; i++) {
-               publishProgress(i);
-            }
 
- */
             return results;
         } catch (Exception e) {
             e.printStackTrace();
@@ -107,33 +94,22 @@ public class StopsAsyncTask extends AsyncTask<String, Integer, String> {
     protected void onPostExecute(String result) {
         super.onPostExecute(result);
 
-      //  progressDialog.dismiss();
-
-//        this.model.add(new StopsModel(10000, "Templeton Ave #5", 33.99, 11.77, "Patrick"));
-
-        //StopsAdapter adapter = new StopsAdapter(context, result);
-
         try {
             JSONArray list = new JSONArray(result);
-            JSONObject jsonObject;
 
             for(int i = 0; i < list.length(); i++) {
-                jsonObject = list.getJSONObject(i);
-                model.add(new StopsModel(jsonObject.getInt("StopId"), jsonObject.getString("Name") ,jsonObject.getDouble("Latitude"), jsonObject.getDouble("Longitude"), jsonObject.getString("ScheduledTime")));
-                Log.i("RESULT", jsonObject.getInt("StopId") + " | " + jsonObject.getString("Name") + " | " + jsonObject.getString("Latitude") + " | " +
-                        jsonObject.getString("Longitude") + " | " + jsonObject.getString("ScheduledTime"));
+                model.add(new StopsModel(
+                        list.getJSONObject(i).getInt("StopId"),
+                        list.getJSONObject(i).getString("Name"),
+                        list.getJSONObject(i).getDouble("Latitude"),
+                        list.getJSONObject(i).getDouble("Longitude"),
+                        list.getJSONObject(i).getString("ScheduledTime")));
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
 
-        recyclerView.setLayoutManager(new LinearLayoutManager(context));
-
-        StopsAdapter adapter = new StopsAdapter(context, model);
-        this.recyclerView.setAdapter(adapter);
-
-        for(StopsModel sm: this.model){
-            Log.i("VIDEO-100->", sm.getName());
-        }
+        this.recyclerView.setLayoutManager(new LinearLayoutManager(context));
+        this.recyclerView.setAdapter(new StopsAdapter(model));
     }
 }
