@@ -33,7 +33,7 @@ public class StopsAdapter extends RecyclerView.Adapter<StopsAdapter.ViewHolder> 
         holder.stopId.setText(String.format("%s", mod.getStopId()));
         holder.name.setText(String.format("%s", mod.getName()));
         holder.latitude.setText(String.format("%s", mod.getLatitude()));
-        holder.longitude.setText(String.format("%s", mod.getLatitude()));
+        holder.longitude.setText(String.format("%s", mod.getLongitude()));
         holder.scheduledTime.setText(String.format("%s", mod.getScheduledTime()));
     }
     @Override

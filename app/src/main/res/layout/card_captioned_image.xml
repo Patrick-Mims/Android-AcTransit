@@ -34,8 +34,8 @@
 
         <LinearLayout
             android:id="@+id/root"
-            android:layout_width="match_parent"
-            android:layout_height="130dp"
+            android:layout_width="388dp"
+            android:layout_height="200dp"
             android:orientation="vertical"
             android:visibility="visible"
             app:layout_constraintEnd_toEndOf="parent"
@@ -45,50 +45,58 @@
 
             <TextView
                 android:id="@+id/stop_id"
-                android:layout_width="77dp"
+                style="@style/GreenText.Large"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="left"
+                android:layout_marginLeft="5dp"
                 android:layout_marginTop="10dp"
-                android:text="id"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:textSize="16sp" />
+                android:baselineAligned="false"
+                android:text="ID"
+                android:textAppearance="?android:attr/textAppearanceSmall" />
 
             <TextView
                 android:id="@+id/name"
+                style="@style/GreenText.Large"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
                 android:layout_marginTop="10dp"
-                android:text="name"
-                android:textAppearance="?android:attr/textAppearanceSmall"
-                android:textSize="16sp" />
+                android:baselineAligned="false"
+                android:text="Name"
+                android:textAppearance="?android:attr/textAppearanceSmall" />
 
             <TextView
                 android:id="@+id/latitude"
+                style="@style/GreenText.Large"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
-                android:text="latitude"
-                android:textAppearance="?android:attr/textAppearanceSmall"
-                android:textSize="16sp" />
+                android:layout_marginTop="10dp"
+                android:baselineAligned="false"
+                android:text="Latitude"
+                android:textAppearance="?android:attr/textAppearanceSmall" />
 
             <TextView
                 android:id="@+id/longitude"
-                android:layout_width="match_parent"
+                style="@style/GreenText.Large"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
-                android:text="longitude"
-                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                android:textSize="16sp" />
+                android:layout_marginTop="10dp"
+                android:baselineAligned="false"
+                android:text="Longitude"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 
             <TextView
                 android:id="@+id/scheduled_time"
-                android:layout_width="match_parent"
+                style="@style/GreenText.Large"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:text="scheudled times"
-                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-                android:textSize="16sp" />
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="10dp"
+                android:baselineAligned="false"
+                android:text="Scheduled Times"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 

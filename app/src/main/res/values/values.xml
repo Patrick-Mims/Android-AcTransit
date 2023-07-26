@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="GreenText" parent="@android:style/TextAppearance">
+        <item name="android:textColor">#00AA00</item>
+    </style>
+    <style name="GreenText.Large">
+        <item name="android:textSize">20dp</item>
+        <item name="android:textColor">#000</item>
+    </style>
+</resources>

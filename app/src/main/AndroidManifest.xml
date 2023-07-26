@@ -15,12 +15,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AndroidAcTransit"
         tools:targetApi="31">
+        <!-- Patrick 07.26.23 Set the theme-->
         <activity
             android:name=".MainActivity"
-            android:exported="true">
+            android:exported="true"
+            android:theme="@style/Theme.AppCompat.Light">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
