@@ -21,13 +21,15 @@ import java.net.URL;
 import java.util.ArrayList;
 
 import org.json.JSONArray;
+import org.json.JSONObject;
 
 public class StopsAsyncTask extends AsyncTask<String, Integer, String> {
-    private final Context context;
-    private final ProgressBar progressBar;
-    private final RecyclerView recyclerView;
+    Context context;
+    ProgressBar progressBar;
+    RecyclerView recyclerView;
     ArrayList<StopsModel> model;
 
+    private int PROGRESS_MAX;
     public StopsAsyncTask(Context context, RecyclerView recyclerView, ProgressBar progressBar, ArrayList<StopsModel> model) {
         this.model = model;
         this.context = context;
