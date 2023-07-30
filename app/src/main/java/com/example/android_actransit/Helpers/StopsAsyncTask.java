@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.android_actransit.Adapters.StopsAdapter;
 import com.example.android_actransit.Models.StopsModel;
+import com.google.gson.Gson;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -23,10 +24,14 @@ import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import com.google.gson.*;
+
 public class StopsAsyncTask extends AsyncTask<String, Integer, String> {
     Context context;
     ProgressBar progressBar;
     RecyclerView recyclerView;
+
+    Gson gson;
     ArrayList<StopsModel> model;
 
     private int PROGRESS_MAX;
